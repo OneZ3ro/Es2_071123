@@ -1,12 +1,13 @@
 package angelomoreno.Es2_071123.service;
 
 import angelomoreno.Es2_071123.entities.Autore;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
-
+@Service
 public class AutoreService {
     private List<Autore> autori = new ArrayList<>();
 
