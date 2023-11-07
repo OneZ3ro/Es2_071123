@@ -2,19 +2,31 @@ package angelomoreno.Es2_071123.controllers;
 
 import angelomoreno.Es2_071123.entities.Blog;
 import angelomoreno.Es2_071123.service.BlogService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/blog")
+@RequestMapping("/blogs")
 public class BlogController {
+    @Autowired
     private BlogService blogService;
 
     @GetMapping("")
     public List<Blog> getBlogs() {
         return blogService.getBlogs();
+    }
+
+    @PostMapping("")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Blog saveBlog(@RequestBody Blog body){
+        return blogService.save(body);
+    }
+
+    @GetMapping("/{id}")
+    public Blog findById(@PathVariable long id){
+        return blogService.findById(id);
     }
 }
