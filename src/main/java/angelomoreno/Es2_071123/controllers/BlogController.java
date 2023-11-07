@@ -34,4 +34,10 @@ public class BlogController {
     public Blog modifyBlog(@PathVariable long id, @RequestBody Blog body){
         return blogService.modifyBlog(id, body);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBlog(@PathVariable long id) {
+        blogService.deleteBlog(id);
+    }
 }

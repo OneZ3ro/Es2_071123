@@ -4,9 +4,7 @@ import angelomoreno.Es2_071123.entities.Blog;
 import angelomoreno.Es2_071123.enums.Categoria;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class BlogService {
@@ -53,6 +51,16 @@ public class BlogService {
             throw new RuntimeException("Blog non trovato");
         } else {
             return app;
+        }
+    }
+
+    public void deleteBlog(long id) {
+        ListIterator<Blog> iterator = this.blogs.listIterator();
+        while (iterator.hasNext()) {
+            Blog current = iterator.next();
+            if (current.getId() == id){
+                iterator.remove();
+            }
         }
     }
 }
