@@ -29,4 +29,9 @@ public class BlogController {
     public Blog findById(@PathVariable long id){
         return blogService.findById(id);
     }
+
+    @PutMapping("/{id}")
+    public Blog modifyBlog(@PathVariable long id, @RequestBody Blog body){
+        return blogService.modifyBlog(id, body);
+    }
 }

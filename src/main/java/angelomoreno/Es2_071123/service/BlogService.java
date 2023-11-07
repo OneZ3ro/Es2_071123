@@ -36,4 +36,23 @@ public class BlogService {
             return appBlog;
         }
     }
+
+    public Blog modifyBlog(long id, Blog body) {
+        Blog app = null;
+        for (Blog blog : this.blogs) {
+            if (blog.getId() == id) {
+                app = blog;
+                app.setId(id);
+                app.setCategoria(body.getCategoria());
+                app.setTitolo(body.getTitolo());
+                app.setContenuto(body.getContenuto());
+                app.setMinutiLettura(body.getMinutiLettura());
+            }
+        }
+        if (app == null) {
+            throw new RuntimeException("Blog non trovato");
+        } else {
+            return app;
+        }
+    }
 }
