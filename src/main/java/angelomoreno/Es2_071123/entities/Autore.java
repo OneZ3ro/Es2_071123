@@ -1,5 +1,6 @@
 package angelomoreno.Es2_071123.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,5 +13,6 @@ public class Autore {
     private String nome;
     private String cognome;
     private String email;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataDiNascita;
 }
